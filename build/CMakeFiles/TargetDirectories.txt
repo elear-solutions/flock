@@ -1,0 +1,3 @@
+/mnt/host/memory/flock/build/CMakeFiles/edit_cache.dir
+/mnt/host/memory/flock/build/CMakeFiles/rebuild_cache.dir
+/mnt/host/memory/flock/build/CMakeFiles/flock.dir

@@ -1,0 +1,42 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/mnt/host/memory/flock/flock.c
+err.h
+-
+errno.h
+-
+fcntl.h
+-
+libgen.h
+-
+signal.h
+-
+stdio.h
+-
+stdlib.h
+-
+string.h
+-
+sys/time.h
+-
+sys/wait.h
+-
+sysexits.h
+-
+unistd.h
+-
+getopt.h
+-
+stdbool.h
+-
+paths.h
+-
+sys/file.h
+-
+
