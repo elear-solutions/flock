@@ -1,1 +1,0 @@
-/mnt/host/toolchain_goke_camera/4.6.1/usr/bin/arm-goke-linux-uclibcgnueabi-gcc   -Werror -D_GNU_SOURCE=1 -Os -s -ffunction-sections -fdata-sections -Wl,--gc-sections   CMakeFiles/flock.dir/flock.c.o  -o flock  -L/usr/local/lib -rdynamic -lpthread -lm -lrt -Wl,-rpath,/usr/local/lib 
