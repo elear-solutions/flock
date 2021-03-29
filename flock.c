@@ -17,13 +17,15 @@
 
 /* options descriptor */
 static struct option longopts[] = {
-  { "exclusive",  no_argument,            NULL,           'x' },
+  { "script",     required_argument,      NULL,           'c' },
+  { "lock",       required_argument,      NULL,           'l' },
   { "shared",     no_argument,            NULL,           's' },
+  { "exclusive",  no_argument,            NULL,           'x' },
   { "nb",         no_argument,            NULL,           'n' },
-  { "wait",       required_argument,      NULL,           'w' },
-  { "timeout",    required_argument,      NULL,           'w' },
-  { NULL,         0,                      NULL,            0  }
+  { "verbose",    no_argument,            NULL,           'v' },
+  { "timeout",    required_argument,      NULL,           'w' }
 };
+
 static bool timeout_expired = false;
 
 /* Meant to be used atexit(close_stdout); */
@@ -72,7 +74,7 @@ int main(int argc, char *argv[]) {
 
 	memset(&timer, 0, sizeof timer);
 
-	while (-1 != (opt = getopt_long(argc, argv, "c:l:s:x:n:v:w:", longopts, NULL))) {
+  while (-1 != (opt = getopt_long(argc, argv, "c:l:sxnvw:", longopts, NULL))) {
 		switch (opt) {
 		case 'c':
 			cmd_argv = sh_c_argv;
@@ -85,18 +87,14 @@ int main(int argc, char *argv[]) {
 			cmd_argv[2] = optarg;
 			cmd_argv[3] = NULL;
 			break;
-		case 'x':
 		case 'l':
 			filename = optarg;
-			break;
-		case 'e':
-			type = LOCK_EX;
 			break;
 		case 's':
 			type = LOCK_SH;
 			break;
-		case 'u':
-			type = LOCK_UN;
+		case 'x':
+			type = LOCK_EX;
 			break;
 		case 'n':
 			block = LOCK_NB;
